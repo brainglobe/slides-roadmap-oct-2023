@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #abb2bf;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #abb2bf; } /* Normal */
+    code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
+    code span.an { color: #98c379; } /* Annotation */
+    code span.at { color: #c678dd; } /* Attribute */
+    code span.bn { color: #d19a66; } /* BaseN */
+    code span.bu { color: #c678dd; } /* BuiltIn */
+    code span.cf { color: #c678dd; } /* ControlFlow */
+    code span.ch { color: #98c379; } /* Char */
+    code span.cn { color: #d19a66; } /* Constant */
+    code span.co { color: #5c6370; font-style: italic; } /* Comment */
+    code span.cv { color: #e06c75; font-style: italic; } /* CommentVar */
+    code span.do { color: #a43340; } /* Documentation */
+    code span.dt { color: #c678dd; } /* DataType */
+    code span.dv { color: #d19a66; } /* DecVal */
+    code span.er { color: #f44747; text-decoration: underline; } /* Error */
+    code span.ex { color: #61afef; font-weight: bold; } /* Extension */
+    code span.fl { color: #d19a66; } /* Float */
+    code span.fu { color: #61afef; } /* Function */
+    code span.im { color: #98c379; } /* Import */
+    code span.in { color: #c45b00; } /* Information */
+    code span.kw { color: #c678dd; } /* Keyword */
+    code span.op { color: #c678dd; } /* Operator */
+    code span.ot { color: #27ae60; } /* Other */
+    code span.pp { color: #c678dd; } /* Preprocessor */
+    code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
+    code span.sc { color: #56b6c2; } /* SpecialChar */
+    code span.ss { color: #da4453; } /* SpecialString */
+    code span.st { color: #98c379; } /* String */
+    code span.va { color: #e06c75; } /* Variable */
+    code span.vs { color: #da4453; } /* VerbatimString */
+    code span.wa { color: #da4453; } /* Warning */
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -340,16 +405,22 @@ Adam Tyson
 </div>
 
 </section>
-<section id="v0-current" class="slide level2">
+<section id="v0-current" class="slide level2 smaller">
 <h2>v0 (current)</h2>
 <ul>
 <li>BrainGlobe Atlas API provides a consistent interface to multiple anatomical atlases</li>
-<li>Separate tools for 3D cell detection (<code>cellfinder</code>), 3D atlas registration(<code>brainreg</code>), bulk segmentation (<code>brainreg-segment</code>) and 3D visualisation (<code>brainrender</code>)</li>
-<li>Plugins for 3D cell detection (<code>cellfinder-napari</code>) and registration (<code>brainreg-napari</code>)</li>
+<li>Separate tools for
+<ul>
+<li>3D cell detection (<code>cellfinder</code>)</li>
+<li>3D atlas registration (<code>brainreg</code>)</li>
+<li>Bulk segmentation (<code>brainreg-segment</code>)</li>
+<li>3D visualisation (<code>brainrender</code>)</li>
+</ul></li>
+<li>Napari plugins for 3D cell detection (<code>cellfinder-napari</code>) and registration (<code>brainreg-napari</code>)</li>
 </ul>
 </section>
-<section id="issues" class="slide level2">
-<h2>Issues</h2>
+<section id="v0-issues" class="slide level2 smaller">
+<h2>v0 issues</h2>
 <ul>
 <li><code>brainrender</code> has considerable technical debt (<a href="https://github.com/brainglobe/brainrender/issues/247">brainrender/247</a>)</li>
 <li>Lots of repositories makes it more difficult to understand which tool does what, and to contribute (e.g.&nbsp;<code>cellfinder</code>, <code>cellfinder-core</code>, <code>cellfinder-napari</code>)</li>
@@ -361,17 +432,33 @@ Adam Tyson
 </ul></li>
 </ul>
 </section>
+<section>
+<section id="planned-milestones" class="title-slide slide level1 center">
+<h1>Planned milestones</h1>
+
+</section>
 <section id="v1-q4-2023" class="slide level2">
 <h2>v1 (Q4 2023)</h2>
 <ul>
-<li>brainrender installable alongside analysis tools (cellfinder, brainreg, brainreg-segment)</li>
-<li>All tools installable via <code>pip install brainglobe</code> or <code>conda install brainglobe -c conda-forge</code></li>
+<li><code>brainrender</code> installable alongside analysis tools (<code>cellfinder</code>, <code>brainreg</code>, <code>brainreg-segment</code>)</li>
+<li>All tools installable via</li>
 </ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install brainglobe<span class="kw">`</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">conda</span> install brainglobe <span class="at">-c</span> conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="v2-q2-2024" class="slide level2">
-<h2>v2 (Q2 2024)</h2>
+<section id="v2-q2-2024-13" class="slide level2">
+<h2>v2 (Q2 2024) 1/3</h2>
 <ul>
-<li>Consistent API (e.g.&nbsp;<code>from brainglobe import cellfinder</code> or <code>from brainglobe import cell_detector_3D</code></li>
+<li>Consistent API (TBC) e.g.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> brainglobe <span class="im">import</span> cellfinder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> brainglobe <span class="im">import</span> cell_detector_3D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="v2-q2-2024-23" class="slide level2">
+<h2>v2 (Q2 2024) 2/3</h2>
+<ul>
 <li>Carry out everything in v1 without leaving napari
 <ul>
 <li>Atlas registration (<code>brainreg-napari</code>)</li>
@@ -380,9 +467,14 @@ Adam Tyson
 <li>Analyse arbitrary ROIs (<code>brainreg-segment</code>)</li>
 <li>Visualisation (<code>brainrender-napari</code>)</li>
 </ul></li>
+</ul>
+</section>
+<section id="v2-q2-2024-33" class="slide level2">
+<h2>v2 (Q2 2024) 3/3</h2>
+<ul>
 <li>Automated benchmarks for analysis tools (cell detection &amp; 3D atlas registration) on “real” data</li>
 <li>Combine napari plugins with backend to reduce number of repositories (<a href="https://github.com/brainglobe/BrainGlobe/issues/3">BrainGlobe/3</a> &amp; (<a href="https://github.com/brainglobe/BrainGlobe/issues/4">BrainGlobe/4</a>)</li>
-<li>Remove existing <code>cellfinder CLI</code> to simplify naming (<a href="https://github.com/brainglobe/BrainGlobe/issues/6">BrainGlobe/6</a>)</li>
+<li>Remove existing <code>cellfinder</code> CLI to simplify naming (<a href="https://github.com/brainglobe/BrainGlobe/issues/6">BrainGlobe/6</a>)</li>
 <li>Release <code>brainglobe-workflows</code>, a collection of scripts to facilitate common tasks (including replacing the <code>cellfinder</code> CLI)</li>
 </ul>
 </section>
@@ -413,14 +505,13 @@ Adam Tyson
 <li>Update Allen adult mouse brain atlas (<a href="https://github.com/brainglobe/bg-atlasgen/issues/46">bg-atlasgen/46</a>)</li>
 <li>3D Multimodal Developmental Mouse Brain atlases (<a href="https://github.com/brainglobe/bg-atlasgen/issues/71">bg-atlasgen/71</a>)</li>
 <li>Human MRI atlases (<a href="https://github.com/brainglobe/bg-atlasgen/issues/85">bg-atlasgen/85</a>)</li>
-<li>Update Waxholm rat atlas (<a href="https://github.com/brainglobe/bg-atlasgen/issues/84">bg-atlasgen/84</a>)</li>
 </ul></li>
 </ul>
 
 <img src="img/logo_niu_dark.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>2023-11-01</p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
