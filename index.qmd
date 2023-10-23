@@ -43,12 +43,16 @@ my-custom-stuff:
    my-reuseable-variable: "I can use this wherever I want in the markdown, and change it in only once place :)"
 ---
 
-## v0 (current)
+## v0 (current) {.smaller}
 * BrainGlobe Atlas API provides a consistent interface to multiple anatomical atlases
-* Separate tools for 3D cell detection (`cellfinder`), 3D atlas registration(`brainreg`), bulk segmentation (`brainreg-segment`) and 3D visualisation (`brainrender`)
-* Plugins for 3D cell detection (`cellfinder-napari`) and registration (`brainreg-napari`)
+* Separate tools for
+    * 3D cell detection (`cellfinder`)
+    * 3D atlas registration (`brainreg`)
+    * Bulk segmentation (`brainreg-segment`)
+    * 3D visualisation (`brainrender`)
+* Napari plugins for 3D cell detection (`cellfinder-napari`) and registration (`brainreg-napari`)
 
-## Issues
+## v0 issues {.smaller}
 * `brainrender` has considerable technical debt ([brainrender/247](https://github.com/brainglobe/brainrender/issues/247))
 * Lots of repositories makes it more difficult to understand which tool does what, and to contribute (e.g. `cellfinder`, `cellfinder-core`, `cellfinder-napari`)
 * The mix of napari plugins, Python APIs and command line tools make the ecosystem appear more complicated than it should
@@ -56,21 +60,44 @@ my-custom-stuff:
     * Some non-image processing steps need to be carried out seperately (e.g. assigning cells to brain regions)
     * Some visualisation relies on exporting data from napari to brainrender
     
-## v1 (Q4 2023)
-* brainrender installable alongside analysis tools (cellfinder, brainreg, brainreg-segment) 
-* All tools installable via `pip install brainglobe` or `conda install brainglobe -c conda-forge`
+# Planned milestones
 
-## v2 (Q2 2024)
-* Consistent API (e.g. `from brainglobe import cellfinder` or `from brainglobe import cell_detector_3D`
+## v1 (Q4 2023)
+* `brainrender` installable alongside analysis tools (`cellfinder`, `brainreg`, `brainreg-segment`) 
+* All tools installable via 
+
+```bash 
+pip install brainglobe` 
+```
+or
+```bash
+conda install brainglobe -c conda-forge
+```
+
+## v2 (Q2 2024) 1/3
+* Consistent API (TBC) e.g.
+
+```python
+from brainglobe import cellfinder
+```
+or
+
+```python
+from brainglobe import cell_detector_3D
+```
+
+## v2 (Q2 2024) 2/3
 * Carry out everything in v1 without leaving napari
     * Atlas registration (`brainreg-napari`)
     * Cell detection (`cellfinder-napari`)
     * Assign cells to brain regions (TBC)
     * Analyse arbitrary ROIs (`brainreg-segment`)
     * Visualisation (`brainrender-napari`)
+
+## v2 (Q2 2024) 3/3
 * Automated benchmarks for analysis tools (cell detection & 3D atlas registration) on "real" data
 * Combine napari plugins with backend to reduce number of repositories ([BrainGlobe/3](https://github.com/brainglobe/BrainGlobe/issues/3) & ([BrainGlobe/4](https://github.com/brainglobe/BrainGlobe/issues/4))
-* Remove existing `cellfinder CLI` to simplify naming ([BrainGlobe/6](https://github.com/brainglobe/BrainGlobe/issues/6))
+* Remove existing `cellfinder` CLI to simplify naming ([BrainGlobe/6](https://github.com/brainglobe/BrainGlobe/issues/6))
 * Release `brainglobe-workflows`, a collection of scripts to facilitate common tasks (including replacing the `cellfinder` CLI)
 
 ## v3 (Q4 2024)
@@ -90,5 +117,3 @@ my-custom-stuff:
     * Update Allen adult mouse brain atlas ([bg-atlasgen/46](https://github.com/brainglobe/bg-atlasgen/issues/46))
     * 3D Multimodal Developmental Mouse Brain atlases ([bg-atlasgen/71](https://github.com/brainglobe/bg-atlasgen/issues/71))
     * Human MRI atlases ([bg-atlasgen/85](https://github.com/brainglobe/bg-atlasgen/issues/85))
-    * Update Waxholm rat atlas ([bg-atlasgen/84](https://github.com/brainglobe/bg-atlasgen/issues/84))
-
