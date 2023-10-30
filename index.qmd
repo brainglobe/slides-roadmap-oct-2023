@@ -1,6 +1,5 @@
 ---
-title: BrainGlobe Roadmap
-subtitle: NIU team meeting
+title: (Potential) BrainGlobe Roadmap
 author: Adam Tyson
 execute: 
   enabled: true
@@ -67,7 +66,7 @@ my-custom-stuff:
 * All tools installable via 
 
 ```bash 
-pip install brainglobe` 
+pip install brainglobe
 ```
 or
 ```bash
@@ -86,12 +85,13 @@ or
 from brainglobe import cell_detector_3D
 ```
 
-## v2 (Q2 2024) 2/3
+## v2 (Q2 2024) 2/3 {.smaller}
 * Carry out everything in v1 without leaving napari
-    * Atlas registration (`brainreg-napari`)
-    * Cell detection (`cellfinder-napari`)
+    * Atlas registration (`brainreg` /  `brainglobe-registration`)
+    * Cell detection (`cellfinder`)
     * Assign cells to brain regions (TBC)
     * Analyse arbitrary ROIs (`brainreg-segment`)
+        * Soon to be renamed `brainglobe-registration`
     * Visualisation (`brainrender-napari`)
 
 ## v2 (Q2 2024) 3/3
