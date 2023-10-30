@@ -61,7 +61,7 @@ my-custom-stuff:
     
 # Planned milestones
 
-## v1 (Q4 2023)
+## v1 (Q4 2023) {.smaller}
 * `brainrender` installable alongside analysis tools (`cellfinder`, `brainreg`, `brainreg-segment`) 
 * All tools installable via 
 
@@ -73,7 +73,7 @@ or
 conda install brainglobe -c conda-forge
 ```
 
-## v2 (Q2 2024) 1/3
+## v2 (Q2 2024) 1/3 {.smaller}
 * Consistent API (TBC) e.g.
 
 ```python
@@ -94,13 +94,13 @@ from brainglobe import cell_detector_3D
         * Soon to be renamed `brainglobe-registration`
     * Visualisation (`brainrender-napari`)
 
-## v2 (Q2 2024) 3/3
+## v2 (Q2 2024) 3/3 {.smaller}
 * Automated benchmarks for analysis tools (cell detection & 3D atlas registration) on "real" data
 * Combine napari plugins with backend to reduce number of repositories ([BrainGlobe/3](https://github.com/brainglobe/BrainGlobe/issues/3) & ([BrainGlobe/4](https://github.com/brainglobe/BrainGlobe/issues/4))
 * Remove existing `cellfinder` CLI to simplify naming ([BrainGlobe/6](https://github.com/brainglobe/BrainGlobe/issues/6))
 * Release `brainglobe-workflows`, a collection of scripts to facilitate common tasks (including replacing the `cellfinder` CLI)
 
-## v3 (Q4 2024)
+## v3 (Q4 2024) {.smaller}
 * Intuitive navigation of napari plugins
     * Create "metaplugin"
 * Generic layer interpreters ([BrainGlobe/10](https://github.com/brainglobe/BrainGlobe/issues/10))
@@ -109,7 +109,7 @@ from brainglobe import cell_detector_3D
     * Plot cells per brain region
 * Sample data provided via napari
 
-## v4 (TBC)
+## v4 (TBC) {.smaller}
 * Arbitrary brain subvolume (2D or 3D) registration
 * Atlas generation tool (from raw data to BrainGlobe atlas)
 * More flexible BrainGlobe atlas API V2 ([bg-atlasapi/141](https://github.com/brainglobe/bg-atlasapi/issues/141))
